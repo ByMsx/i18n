@@ -81,6 +81,7 @@ typings/
 # typescript files created by tsc
 *.js
 # ignore tsc output files
-./out
+out
 out/index.d.ts
 out/deps.node.d.ts
+.DS_Store
