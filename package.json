@@ -1,0 +1,21 @@
+{
+  "name": "grammy-i18next-language-detector",
+  "version": "0.0.1",
+  "description": "grammy i18next language detector plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grammy",
+    "i18next",
+    "language-detector"
+  ],
+  "author": "Tecardo1",
+  "license": "MIT",
+  "devDependencies": {
+    "grammy": "^1.5.2",
+    "i18next": "^21.6.0",
+    "typescript": "^4.5.3"
+  }
+}
