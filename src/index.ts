@@ -1,5 +1,4 @@
-import i18next, {i18n, InitOptions, LanguageDetectorModule, Services} from "i18next";
-import {Context, Middleware, SessionFlavor} from "grammy";
+import i18next, { Services, LanguageDetectorModule, InitOptions, Context, i18n, SessionFlavor, Middleware } from "./deps.deno.ts";
 
 export class GrammyLanguageDetector implements LanguageDetectorModule {
   constructor(ctx: i18nFlavorContextS, useSession: boolean) {
@@ -37,7 +36,6 @@ export class GrammyLanguageDetector implements LanguageDetectorModule {
 }
 
 
-
 interface  i18nFlavor extends Context {
   i18n: i18n;
 }
@@ -48,12 +46,12 @@ interface SessionFlavori18n extends SessionFlavor<any> {
 
 type i18nFlavorContextS = Context & i18nFlavor & SessionFlavori18n;
 
-export function langDetect<C extends i18nFlavorContextS>(i18n: typeof i18next, InitOptions: InitOptions, useSession: boolean): Middleware<C> {
+export function langDetect<C extends i18nFlavorContextS>(InitOptions: InitOptions, useSession: boolean): Middleware<C> {
   return async (ctx, next) => {
     console.log("Language", ctx.from?.language_code);
     ctx.i18n = i18next.createInstance();
     await ctx.i18n.use(new GrammyLanguageDetector(ctx, useSession)).init(InitOptions);
-    ctx.i18n.on('languageChanged', (lng) => { // Keep language in sync
+    ctx.i18n.on('languageChanged', (lng:string) => { // Keep language in sync
       if(ctx.session){
         console.log("Language changed to: ", lng, " in session: ", ctx.session.__language_code);
         ctx.i18n.services.languageDetector.cacheUserLanguage(lng);

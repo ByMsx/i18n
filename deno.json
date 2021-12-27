@@ -1,0 +1,22 @@
+{
+    "fmt": {
+        "options": {
+            "indentWidth": 4,
+            "proseWrap": "preserve"
+        },
+        "files": {
+            "exclude": [
+                "./node_modules/",
+                "./package-lock.json"
+            ]
+        }
+    },
+    "lint": {
+        "files": {
+            "exclude": [
+                "./node_modules/",
+                "./package-lock.json"
+            ]
+        }
+    }
+}
