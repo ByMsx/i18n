@@ -48,7 +48,7 @@ interface SessionFlavori18n extends SessionFlavor<any> {
 
 type i18nFlavorContextS = Context & i18nFlavor & SessionFlavori18n;
 
-export function langDetect<C extends i18nFlavorContextS>(i18n: typeof i18next, InitOptions: InitOptions, useSession: boolean): Middleware<C> {
+export function langDetect<C extends i18nFlavorContextS>(InitOptions: InitOptions, useSession: boolean): Middleware<C> {
   return async (ctx, next) => {
     console.log("Language", ctx.from?.language_code);
     ctx.i18n = i18next.createInstance();
