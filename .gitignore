@@ -77,3 +77,6 @@ typings/
 
 # Package-lock.json is created by npm install --save-dev
 ./package-lock.json
+
+# typescript files created by tsc
+*.js
